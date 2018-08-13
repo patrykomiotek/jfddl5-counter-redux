@@ -1,19 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => ({
+  value: state.counter.counterValue
+});
 
 class Counter extends React.Component {
-
-  state = {
-    value: 7
-  }
 
   render() {
     return (
       <div>
-        My awesome counter: {this.state.value}
+        My awesome counter: {this.props.value}
       </div>
     );
 
   }
 }
 
-export default Counter;
+export default connect(mapStateToProps)(Counter);
